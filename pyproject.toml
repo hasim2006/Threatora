@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "threatora"
+version = "1.0.0"
+description = "Advanced Cyber Attack & Network Intrusion Detection Framework using Hybrid Deep Learning & Gradient Boosting"
+readme = "README.md"
+authors = [{ name = "Mohammad Hasim", email = "juug25btech29109@jainuniversity.ac.in" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = [
+    "cybersecurity",
+    "intrusion-detection",
+    "deep-learning",
+    "capsule-networks",
+    "xgboost",
+    "autoencoder",
+    "shap",
+    "unsw-nb15",
+    "cicids2018",
+    "network-security"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Information Technology",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "xgboost>=2.0.0",
+    "shap>=0.44.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "kagglehub>=0.2.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/hasim2006/Threatora"
+Repository = "https://github.com/hasim2006/Threatora"
+Issues = "https://github.com/hasim2006/Threatora/issues"
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
