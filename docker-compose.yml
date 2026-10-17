@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  threatora:
+    build: .
+    container_name: threatora-pipeline
+    volumes:
+      - ./outputs:/app/outputs
+    environment:
+      - PYTHONUNBUFFERED=1
+      - OMP_NUM_THREADS=4
+    command: ["--dataset", "all"]
