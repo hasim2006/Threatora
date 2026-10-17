@@ -1,0 +1,66 @@
+# Threatora: Cyber Attack & Intrusion Detection Framework Configuration
+# Default Hyperparameters & Runtime Configurations
+
+system:
+  seed: 42
+  device: "auto"  # "auto", "cuda", or "cpu"
+  num_threads: 6
+  log_level: "INFO"
+
+datasets:
+  unsw_nb15:
+    name: "UNSW-NB15"
+    test_split_ratio: 0.25
+    random_state: 42
+    top_k_features: 20
+    max_samples: 250000
+
+  cicids2018:
+    name: "CSE-CIC-IDS2018"
+    target_pattern: "Thurs.*Botnet.*\\.csv$"
+    test_split_ratio: 0.25
+    random_state: 42
+    top_k_features: 20
+    max_samples: 250000
+
+models:
+  autoencoder:
+    bottleneck_dim: 24
+    hidden_dim: 64
+    epochs: 8
+    learning_rate: 0.005
+    batch_size: 1024
+    weight_decay: 0.00001
+    shap_background_samples: 200
+
+  capsnet:
+    hidden_dim: 32
+    num_capsules: 8
+    capsule_dim: 8
+    epochs: 12
+    learning_rate: 0.003
+    batch_size: 512
+    weight_decay: 0.0001
+
+  xgboost:
+    n_estimators: 200
+    max_depth: 6
+    learning_rate: 0.07
+    subsample: 0.85
+    colsample_bytree: 0.85
+    tree_method: "hist"
+    eval_metric: "logloss"
+
+evaluation:
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_score"
+    - "roc_auc"
+    - "mcc"
+    - "false_alarm_rate"
+    - "missed_attack_rate"
+  export_visualizations: true
+  output_dpi: 300
+  output_dir: "./outputs"
