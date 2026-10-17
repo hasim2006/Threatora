@@ -10,6 +10,12 @@ import gc
 import sys
 import time
 import random
+
+# Ensure repository root is in sys.path
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
 import numpy as np
 import torch
 import torch.nn as nn
