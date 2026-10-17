@@ -20,9 +20,6 @@ if hasattr(sys.stdout, 'reconfigure'):
     except Exception:
         pass
 
-from pipeline_unsw_nb15 import run_unsw_pipeline
-from pipeline_cicids2018 import run_cicids_pipeline
-
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Unified Cyber Attack Detection Benchmark Pipeline (UNSW-NB15 & CSE-CIC-IDS2018)"
@@ -61,6 +58,7 @@ def main():
     results = {}
 
     if args.dataset in ["unsw", "all"]:
+        from pipelines.pipeline_unsw_nb15 import run_unsw_pipeline
         print("\n" + "#" * 80)
         print(">>> EXECUTING DATASET 1: UNSW-NB15 BENCHMARK")
         print("#" * 80)
@@ -68,6 +66,7 @@ def main():
         results["UNSW-NB15"] = run_unsw_pipeline(output_dir=out_unsw)
 
     if args.dataset in ["cicids", "all"]:
+        from pipelines.pipeline_cicids2018 import run_cicids_pipeline
         print("\n" + "#" * 80)
         print(">>> EXECUTING DATASET 2: CSE-CIC-IDS2018 BENCHMARK")
         print("#" * 80)
