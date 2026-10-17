@@ -186,8 +186,19 @@ Threatora/
 ├── tests/                         # Pytest unit tests
 │   ├── test_autoencoder.py
 │   ├── test_capsnet.py
+├── pipelines/          # Dataset Execution Pipelines
+│   ├── __init__.py
+│   ├── pipeline_cicids2018.py     # Standalone CSE-CIC-IDS2018 pipeline
+│   └── pipeline_unsw_nb15.py      # Standalone UNSW-NB15 pipeline
+├── tests/                         # Unit test suite
+│   ├── __init__.py
+│   ├── test_autoencoder.py
+│   ├── test_capsnet.py
 │   ├── test_classifier.py
-│   └── test_data_loader.py
+│   ├── test_data_loader.py
+│   └── test_pipelines.py
+├── threatora/                     # Top-level Python package interface
+│   └── __init__.py
 ├── .gitattributes                 # Line ending normalization
 ├── .gitignore                      # Safe exclusions (no raw datasets, no cache)
 ├── CONTRIBUTING.md                 # Contribution guidelines
@@ -197,8 +208,6 @@ Threatora/
 ├── LICENSE                        # MIT Open Source License
 ├── Makefile                       # Developer task automation
 ├── main_unified_pipeline.py       # Master CLI execution runner
-├── pipeline_cicids2018.py         # Standalone CSE-CIC-IDS2018 pipeline
-├── pipeline_unsw_nb15.py          # Standalone UNSW-NB15 pipeline
 ├── pyproject.toml                 # Modern PEP 517 build configuration
 ├── requirements.txt               # Pinned dependencies
 ├── SECURITY.md                    # Vulnerability reporting disclosure policy
@@ -255,8 +264,8 @@ python main_unified_pipeline.py --dataset cicids --max-samples 500000 --output-d
 
 Or execute dedicated dataset pipelines directly:
 ```bash
-python pipeline_unsw_nb15.py
-python pipeline_cicids2018.py
+python pipelines/pipeline_unsw_nb15.py
+python pipelines/pipeline_cicids2018.py
 ```
 
 ---
