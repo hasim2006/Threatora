@@ -28,10 +28,10 @@ run-all:
 	python main_unified_pipeline.py --dataset all
 
 run-unsw:
-	python pipeline_unsw_nb15.py
+	python pipelines/pipeline_unsw_nb15.py
 
 run-cicids:
-	python pipeline_cicids2018.py
+	python pipelines/pipeline_cicids2018.py
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +

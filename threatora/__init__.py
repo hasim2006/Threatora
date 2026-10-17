@@ -8,6 +8,8 @@ __author__ = "Mohammad Hasim"
 from models.autoencoder import Autoencoder, ReconstructionEnergyWrapper
 from models.capsnet import SpatialTemporalCapsNet, GTNLayer
 from models.classifier import train_xgboost, evaluate_predictions
+from pipelines.pipeline_unsw_nb15 import run_unsw_pipeline
+from pipelines.pipeline_cicids2018 import run_cicids_pipeline
 
 __all__ = [
     "Autoencoder",
@@ -16,4 +18,7 @@ __all__ = [
     "GTNLayer",
     "train_xgboost",
     "evaluate_predictions",
+    "run_unsw_pipeline",
+    "run_cicids_pipeline",
 ]
+
